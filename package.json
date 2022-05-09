@@ -1,5 +1,5 @@
 {
-  "name": "dream geography",
+  "name": "dream-geography",
   "version": "0.0.1",
   "description": "A page tracking the geography of my dreams.",
   "main": "server.js",
@@ -7,12 +7,13 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "@fastify/static": "^5.0.2",
+    "@fastify/static": "^6.0.0",
     "fastify": "^3.29.0",
     "handlebars": "^4.7.7",
     "markdown-it": "^13.0.1",
     "markdown-it-wikilinks": "^1.2.0",
-    "point-of-view": "^5.2.1"
+    "point-of-view": "^5.2.1",
+    "sanitize-filename": "^1.6.3"
   },
   "engines": {
     "node": "12.x"

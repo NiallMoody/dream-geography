@@ -1,6 +1,8 @@
 const path = require("path");
 var fs = require("fs");
 
+console.log("huh?");
+
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 // Require the fastify framework and instantiate it
@@ -23,9 +25,12 @@ fastify.register(require("point-of-view"), {
 });
 
 //Load our markdown renderer.
-var md = require('markdown-it')();
+var md = require("markdown-it")();
 //...and the plugin to support wikilinks.
-const wikilinks = require('markdown-it-wikilinks')();
+const wikilinks = require("markdown-it-wikilinks")();
+
+//Make sure we can sanitise filenames.
+var sanitize = require("sanitize-filename");
 
 // Load and parse SEO data
 const seo = require("./src/seo.json");
@@ -33,16 +38,37 @@ if (seo.url === "glitch-default") {
   seo.url = `https://${process.env.PROJECT_DOMAIN}.glitch.me`;
 }
 
+console.log("huh??");
+
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-fs.readdir("places", (err, files) => {
-  for(let file of files) {
-    fs.readfile(`places/${file}`, {encoding: 'utf-8'}, (err,data) => {
+fs.readdir("./places", function(err, files) {
+  console.log(`Contents of places dir: ${files}`);
+  /*if(!err) {
+    for(let file of files) {
+      console.log(`About to read ${file}`);
+      fs.readFile(`places/${file}`, {encoding: 'utf-8'}, (err,data) => {
+        console.log(`Read ${file}`);
+        if(!err) {
+          let renderedContents = md.use(wikilinks).render(data);
+          let filename = sanitize(file.substring(0, file.length - 3));
+          console.log(filename);
+          
+          //fs.writeFile(`public/places/`)
+        }
+        else {
+          console.log(`Could not read places/${file}. Error: ${err}`);
+        }
+      });
       
-    });
-    let renderedContents = md.use(wikilinks).render()
+    }
   }
+  else {
+    console.log(`Could not read places dir. Error: ${err}`);
+  }*/
 });
+
+console.log("huh???");
 
 
 //------------------------------------------------------------------------------
@@ -55,6 +81,8 @@ fastify.get("/", function(request, reply) {
   // The Handlebars code will be able to access the parameter values and build them into the page
   reply.view("/src/pages/index.hbs", params);
 });
+
+console.log("huh????");
 
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, '0.0.0.0', function(err, address) {
