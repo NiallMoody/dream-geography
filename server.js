@@ -1,8 +1,6 @@
 const path = require("path");
 const fs = require("fs");
 
-console.log("huh?");
-
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 // Require the fastify framework and instantiate it
@@ -26,11 +24,8 @@ fastify.register(require("point-of-view"), {
 
 //Used to sanitise our wikilinks page names.
 function sanitisePageNames(name) {
-  let sanitised = sanitize(name);
-  
-  
-  console.log(sanitize(name));
-  return sanitize(name);
+  let sanitised = sanitize(name).split(" ").join("-").toLowerCase();
+  return sanitised;
 }
 
 //Load our markdown renderer.
@@ -47,56 +42,48 @@ if (seo.url === "glitch-default") {
   seo.url = `https://${process.env.PROJECT_DOMAIN}.glitch.me`;
 }
 
-console.log("huh??");
-
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-/*fs.readdir("./", (err, files) => {
-  console.log(err);
-  console.log(`Contents of places dir: ${files}`);
-  if(!err) {
-    for(let file of files) {
-      console.log(`About to read ${file}`);
-      fs.readFile(`places/${file}`, {encoding: 'utf-8'}, (err,data) => {
-        console.log(`Read ${file}`);
-        if(!err) {
-          let renderedContents = md.use(wikilinks).render(data);
-          let filename = sanitize(file.substring(0, file.length - 3));
-          console.log(filename);
-          
-          //fs.writeFile(`public/places/`)
-        }
-        else {
-          console.log(`Could not read places/${file}. Error: ${err}`);
-        }
-      });
-      
-    }
-  }
-  else {
-    console.log(`Could not read places dir. Error: ${err}`);
-  }
-});*/
+var lastModifiedPlaces = JSON.parse(fs.readFileSync('last-modified.json', 'utf8'));
+var updatedLastModified = false;
 
 try {
   var places = fs.readdirSync("places");
   for(let index in places) {
     console.log(`Reading ${places[index]}`);
-    try {
-      let data = fs.readFileSync(`places/${places[index]}`, {encoding: 'utf-8'});
-      let filename = sanitize(places[index].substring(0, places[index].length - 3)) + `.html`;
+    
+    let fileStats = fs.statSync(`places/${places[index]}`);
+    
+    if(places[index] in lastModifiedPlaces) {
+      if(Date(places[index]) > lastModifiedPlaces[places[index]]) {
+        lastModifiedPlaces[places[index]] = fileStats.mtime;
       
-      let renderedContents = md.use(wikilinks).render(data);
-      
-      try {
-        fs.writeFileSync(`public/places/${filename}`, renderedContents);
-      }
-      catch (err) {
-        console.log(`Could not write public/places/${filename}. Error: ${err}`);
+        updatedLastModified = true;
       }
     }
-    catch (err) {
-      console.log(`Could not read places/${places[index]}. Error: ${err}`);
+    else {
+      lastModifiedPlaces[places[index]] = fileStats.mtime;
+      
+      updatedLastModified = true;
+    }
+    
+    if(updatedLastModified) {
+      try {
+        let data = fs.readFileSync(`places/${places[index]}`, {encoding: 'utf-8'});
+        let filename = sanitisePageNames(places[index].substring(0, places[index].length - 3)) + `.html`;
+
+        let renderedContents = md.use(wikilinks).render(data);
+
+        try {
+          fs.writeFileSync(`public/places/${filename}`, renderedContents);
+        }
+        catch (err) {
+          console.log(`Could not write public/places/${filename}. Error: ${err}`);
+        }
+      }
+      catch (err) {
+        console.log(`Could not read places/${places[index]}. Error: ${err}`);
+      }
     }
   }
 }
@@ -104,8 +91,10 @@ catch (err) {
   console.log(`Could not read places dir. Error: ${err}`);
 }
 
-console.log("huh???");
-
+if(updatedLastModified) {
+  //Write to last-modified.json.
+  fs.writeFileSync(`last-modified.json`, JSON.stringify(lastModifiedPlaces));
+}
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
@@ -117,8 +106,6 @@ fastify.get("/", (request, reply) => {
   // The Handlebars code will be able to access the parameter values and build them into the page
   reply.view("/src/pages/index.hbs", params);
 });
-
-console.log("huh????");
 
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, '0.0.0.0', (err, address) => {
