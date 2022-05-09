@@ -49,44 +49,45 @@ var updatedLastModified = false;
 
 try {
   //First get all the files in our root places directory.
-  var places = fs.readdirSync(`places`);
+  let places = fs.readdirSync(`places`);
   for(let index in places) {
-    //Get the last modified time of this place.
-    let fileStats = fs.statSync(`places/${places[index]}`);
+    let markdownFile = places[index];
     
-    console.log(`Current: ${fileStats.mtime}`);
+    //Get the last modified time of this place.
+    let fileStats = fs.statSync(`places/${markdownFile}`);
     
     //If we already have a record of it in last-modified.json, check if the most
     //recent last-modified time is newer than the last one we stored in
     //last-modified.json.
-    if(places[index] in lastModifiedPlaces) {
-      console.log(`Stored: ${Date(lastModifiedPlaces[places[index]].mtime)}`);
-      if(Date(places[index].mtime) > Date(lastModifiedPlaces[places[index]].mtime)) {
-        console.log(`places/${places[index]} has been modified.`);
+    if(markdownFile in lastModifiedPlaces) {
+      let lastDate = new Date(lastModifiedPlaces[markdownFile]);
+      
+      if(fileStats.mtime > lastDate) {
+        console.log(`places/${markdownFile} has been modified.`);
         
-        lastModifiedPlaces[places[index]] = fileStats.mtime;
+        lastModifiedPlaces[markdownFile] = fileStats.mtime;
       
         updatedLastModified = true;
       }
     }
     //If we don't have a record of it in last-modified.json, add it.
     else {
-      console.log(`places/${places[index]} is a new file.`);
+      console.log(`places/${markdownFile} is a new file.`);
       
-      lastModifiedPlaces[places[index]] = fileStats.mtime;
+      lastModifiedPlaces[markdownFile] = fileStats.mtime;
       
       updatedLastModified = true;
     }
     
     //Only parse the file if it's new or has been updated.
     if(updatedLastModified) {
-      console.log(`Reading places/${places[index]}...`);
+      console.log(`Reading places/${markdownFile}...`);
       try {
-        let data = fs.readFileSync(`places/${places[index]}`, {encoding: `utf-8`});
-        let filename = sanitisePageNames(places[index].substring(0, places[index].length - 3)) + `.html`;
+        let data = fs.readFileSync(`places/${markdownFile}`, {encoding: `utf-8`});
+        let filename = sanitisePageNames(markdownFile.substring(0, markdownFile.length - 3)) + `.html`;
 
         //TODO: Update this to use a handbrake template to create a full page.
-        let renderedContents = `# ${places[index].substring(0, places[index].length - 3)} ${md.use(wikilinks).render(data)}`;
+        let renderedContents = md.use(wikilinks).render(`# ${markdownFile.substring(0, markdownFile.length - 3)}\n${data}`);
 
         try {
           console.log(`Writing public/places/${filename}...`);
@@ -97,7 +98,7 @@ try {
         }
       }
       catch (err) {
-        console.log(`Could not read places/${places[index]}. Error: ${err}`);
+        console.log(`Could not read places/${markdownFile}. Error: ${err}`);
       }
     }
   }
