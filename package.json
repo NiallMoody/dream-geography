@@ -1,15 +1,17 @@
 {
-  "name": "glitch-hello-node",
+  "name": "dream geography",
   "version": "0.0.1",
-  "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",
+  "description": "A page tracking the geography of my dreams.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
+    "@fastify/static": "^5.0.2",
     "fastify": "^3.29.0",
-    "fastify-static": "^4.7.0",
     "handlebars": "^4.7.7",
+    "markdown-it": "^13.0.1",
+    "markdown-it-wikilinks": "^1.2.0",
     "point-of-view": "^5.2.1"
   },
   "engines": {
