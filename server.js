@@ -54,11 +54,14 @@ try {
     //Get the last modified time of this place.
     let fileStats = fs.statSync(`places/${places[index]}`);
     
+    console.log(`Current: ${fileStats.mtime}`);
+    
     //If we already have a record of it in last-modified.json, check if the most
     //recent last-modified time is newer than the last one we stored in
     //last-modified.json.
     if(places[index] in lastModifiedPlaces) {
-      if(Date(places[index]) > Date(lastModifiedPlaces[places[index]])) {
+      console.log(`Stored: ${Date(lastModifiedPlaces[places[index]].mtime)}`);
+      if(Date(places[index].mtime) > Date(lastModifiedPlaces[places[index]].mtime)) {
         console.log(`places/${places[index]} has been modified.`);
         
         lastModifiedPlaces[places[index]] = fileStats.mtime;
@@ -83,7 +86,7 @@ try {
         let filename = sanitisePageNames(places[index].substring(0, places[index].length - 3)) + `.html`;
 
         //TODO: Update this to use a handbrake template to create a full page.
-        let renderedContents = md.use(wikilinks).render(data);
+        let renderedContents = `# ${places[index].substring(0, places[index].length - 3)} ${md.use(wikilinks).render(data)}`;
 
         try {
           console.log(`Writing public/places/${filename}...`);
@@ -122,7 +125,9 @@ fastify.get(`/`, (request, reply) => {
 
 //Displays individual pages from the public/places directory.
 fastify.get(`/places/*`, (request, reply) => {
-  console.log(request);
+  console.log(request.params[`*`]);
+  
+  return reply.sendFile(request.url);
 });
 
 // Run the server and report out to the logs
