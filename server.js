@@ -52,6 +52,7 @@ try {
   let places = fs.readdirSync(`places`);
   for(let index in places) {
     let markdownFile = places[index];
+    let placeName = markdownFile.substring(0, markdownFile.length - 3);
     
     //Get the last modified time of this place.
     let fileStats = fs.statSync(`places/${markdownFile}`);
@@ -84,10 +85,10 @@ try {
       console.log(`Reading places/${markdownFile}...`);
       try {
         let data = fs.readFileSync(`places/${markdownFile}`, {encoding: `utf-8`});
-        let filename = sanitisePageNames(markdownFile.substring(0, markdownFile.length - 3)) + `.html`;
+        let filename = sanitisePageNames(placeName) + `.html`;
 
         //TODO: Update this to use a handbrake template to create a full page.
-        let renderedContents = md.use(wikilinks).render(`# ${markdownFile.substring(0, markdownFile.length - 3)}\n${data}`);
+        let renderedContents = md.use(wikilinks).render(`# ${placeName} \n ${data}`);
 
         try {
           console.log(`Writing public/places/${filename}...`);
@@ -126,8 +127,6 @@ fastify.get(`/`, (request, reply) => {
 
 //Displays individual pages from the public/places directory.
 fastify.get(`/places/*`, (request, reply) => {
-  console.log(request.params[`*`]);
-  
   return reply.sendFile(request.url);
 });
 
