@@ -48,26 +48,32 @@ var lastModifiedPlaces = JSON.parse(fs.readFileSync('last-modified.json', 'utf8'
 var updatedLastModified = false;
 
 try {
+  //First get all the files in our root places directory.
   var places = fs.readdirSync("places");
   for(let index in places) {
-    console.log(`Reading ${places[index]}`);
-    
+    //Get the last modified time of this place.
     let fileStats = fs.statSync(`places/${places[index]}`);
     
+    //If we already have a record of it in last-modified.json, check if 
     if(places[index] in lastModifiedPlaces) {
-      if(Date(places[index]) > lastModifiedPlaces[places[index]]) {
+      if(Date(places[index]) > Date(lastModifiedPlaces[places[index]])) {
+        console.log(`places/${places[index]} has been modified.`);
+        
         lastModifiedPlaces[places[index]] = fileStats.mtime;
       
         updatedLastModified = true;
       }
     }
     else {
+      console.log(`places/${places[index]} is a new file.`);
+      
       lastModifiedPlaces[places[index]] = fileStats.mtime;
       
       updatedLastModified = true;
     }
     
     if(updatedLastModified) {
+      console.log(`Reading places/${places[index]}...`);
       try {
         let data = fs.readFileSync(`places/${places[index]}`, {encoding: 'utf-8'});
         let filename = sanitisePageNames(places[index].substring(0, places[index].length - 3)) + `.html`;
@@ -75,6 +81,7 @@ try {
         let renderedContents = md.use(wikilinks).render(data);
 
         try {
+          console.log(`Writing public/places/${filename}...`);
           fs.writeFileSync(`public/places/${filename}`, renderedContents);
         }
         catch (err) {
@@ -93,6 +100,7 @@ catch (err) {
 
 if(updatedLastModified) {
   //Write to last-modified.json.
+  console.log(`Updating last-modified.json...`);
   fs.writeFileSync(`last-modified.json`, JSON.stringify(lastModifiedPlaces));
 }
 
@@ -110,6 +118,7 @@ fastify.get("/", (request, reply) => {
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, '0.0.0.0', (err, address) => {
   if (err) {
+    console.log(err);
     fastify.log.error(err);
     process.exit(1);
   }
