@@ -1,5 +1,5 @@
 const path = require("path");
-var fs = require("fs");
+const fs = require("fs");
 
 console.log("huh?");
 
@@ -42,9 +42,10 @@ console.log("huh??");
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-fs.readdir("./places", function(err, files) {
+/*fs.readdir("./", (err, files) => {
+  console.log(err);
   console.log(`Contents of places dir: ${files}`);
-  /*if(!err) {
+  if(!err) {
     for(let file of files) {
       console.log(`About to read ${file}`);
       fs.readFile(`places/${file}`, {encoding: 'utf-8'}, (err,data) => {
@@ -65,8 +66,24 @@ fs.readdir("./places", function(err, files) {
   }
   else {
     console.log(`Could not read places dir. Error: ${err}`);
-  }*/
-});
+  }
+});*/
+
+try {
+  var places = fs.readdirSync("places");
+  for(let place in places) {
+    console.log(`Reading ${place}`);
+    try {
+      const data = fs.readFileSync(`places/${place}`, {encoding: 'utf-8'});
+    }
+    catch (err) {
+      console.log(`Could not read ${place}. Error: ${err}`);
+    }
+  }
+}
+catch (err) {
+  console.log(`Could not read places dir. Error: ${err}`);
+}
 
 console.log("huh???");
 
@@ -74,7 +91,7 @@ console.log("huh???");
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 //Our home page route
-fastify.get("/", function(request, reply) {
+fastify.get("/", (request, reply) => {
   // params is an object we'll pass to our handlebars template
   let params = { seo: seo };
   
@@ -85,7 +102,7 @@ fastify.get("/", function(request, reply) {
 console.log("huh????");
 
 // Run the server and report out to the logs
-fastify.listen(process.env.PORT, '0.0.0.0', function(err, address) {
+fastify.listen(process.env.PORT, '0.0.0.0', (err, address) => {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
