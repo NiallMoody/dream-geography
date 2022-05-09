@@ -49,12 +49,14 @@ var updatedLastModified = false;
 
 try {
   //First get all the files in our root places directory.
-  var places = fs.readdirSync("places");
+  var places = fs.readdirSync(`places`);
   for(let index in places) {
     //Get the last modified time of this place.
     let fileStats = fs.statSync(`places/${places[index]}`);
     
-    //If we already have a record of it in last-modified.json, check if 
+    //If we already have a record of it in last-modified.json, check if the most
+    //recent last-modified time is newer than the last one we stored in
+    //last-modified.json.
     if(places[index] in lastModifiedPlaces) {
       if(Date(places[index]) > Date(lastModifiedPlaces[places[index]])) {
         console.log(`places/${places[index]} has been modified.`);
@@ -64,6 +66,7 @@ try {
         updatedLastModified = true;
       }
     }
+    //If we don't have a record of it in last-modified.json, add it.
     else {
       console.log(`places/${places[index]} is a new file.`);
       
@@ -72,12 +75,14 @@ try {
       updatedLastModified = true;
     }
     
+    //Only parse the file if it's new or has been updated.
     if(updatedLastModified) {
       console.log(`Reading places/${places[index]}...`);
       try {
-        let data = fs.readFileSync(`places/${places[index]}`, {encoding: 'utf-8'});
+        let data = fs.readFileSync(`places/${places[index]}`, {encoding: `utf-8`});
         let filename = sanitisePageNames(places[index].substring(0, places[index].length - 3)) + `.html`;
 
+        //TODO: Update this to use a handbrake template to create a full page.
         let renderedContents = md.use(wikilinks).render(data);
 
         try {
@@ -99,7 +104,7 @@ catch (err) {
 }
 
 if(updatedLastModified) {
-  //Write to last-modified.json.
+  //Write any changes to last-modified.json.
   console.log(`Updating last-modified.json...`);
   fs.writeFileSync(`last-modified.json`, JSON.stringify(lastModifiedPlaces));
 }
@@ -107,16 +112,16 @@ if(updatedLastModified) {
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 //Our home page route
-fastify.get("/", (request, reply) => {
+fastify.get(`/`, (request, reply) => {
   // params is an object we'll pass to our handlebars template
   let params = { seo: seo };
   
   // The Handlebars code will be able to access the parameter values and build them into the page
-  reply.view("/src/pages/index.hbs", params);
+  reply.view(`/src/pages/index.hbs`, params);
 });
 
 // Run the server and report out to the logs
-fastify.listen(process.env.PORT, '0.0.0.0', (err, address) => {
+fastify.listen(process.env.PORT, `0.0.0.0`, (err, address) => {
   if (err) {
     console.log(err);
     fastify.log.error(err);
