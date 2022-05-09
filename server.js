@@ -24,10 +24,19 @@ fastify.register(require("point-of-view"), {
   }
 });
 
+//Used to sanitise our wikilinks page names.
+function sanitisePageNames(name) {
+  let sanitised = sanitize(name);
+  
+  
+  console.log(sanitize(name));
+  return sanitize(name);
+}
+
 //Load our markdown renderer.
 var md = require("markdown-it")();
 //...and the plugin to support wikilinks.
-const wikilinks = require("markdown-it-wikilinks")();
+const wikilinks = require("markdown-it-wikilinks")({ postProcessPageName:sanitisePageNames });
 
 //Make sure we can sanitise filenames.
 var sanitize = require("sanitize-filename");
@@ -71,13 +80,23 @@ console.log("huh??");
 
 try {
   var places = fs.readdirSync("places");
-  for(let place in places) {
-    console.log(`Reading ${place}`);
+  for(let index in places) {
+    console.log(`Reading ${places[index]}`);
     try {
-      const data = fs.readFileSync(`places/${place}`, {encoding: 'utf-8'});
+      let data = fs.readFileSync(`places/${places[index]}`, {encoding: 'utf-8'});
+      let filename = sanitize(places[index].substring(0, places[index].length - 3)) + `.html`;
+      
+      let renderedContents = md.use(wikilinks).render(data);
+      
+      try {
+        fs.writeFileSync(`public/places/${filename}`, renderedContents);
+      }
+      catch (err) {
+        console.log(`Could not write public/places/${filename}. Error: ${err}`);
+      }
     }
     catch (err) {
-      console.log(`Could not read ${place}. Error: ${err}`);
+      console.log(`Could not read places/${places[index]}. Error: ${err}`);
     }
   }
 }
