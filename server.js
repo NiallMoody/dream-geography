@@ -22,6 +22,11 @@ fastify.register(require("point-of-view"), {
   }
 });
 
+//Load our markdown renderer.
+var md = require('markdown-it')();
+//...and the plugin to support wikilinks.
+const wikilinks = require('markdown-it-wikilinks')();
+
 // Load and parse SEO data
 const seo = require("./src/seo.json");
 if (seo.url === "glitch-default") {
@@ -30,8 +35,15 @@ if (seo.url === "glitch-default") {
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-var places = fs.readdir(places);
-console.log(places);
+fs.readdir("places", (err, files) => {
+  for(let file of files) {
+    fs.readfile(`places/${file}`, {encoding: 'utf-8'}, (err,data) => {
+      
+    });
+    let renderedContents = md.use(wikilinks).render()
+  }
+});
+
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
