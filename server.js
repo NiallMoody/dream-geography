@@ -120,6 +120,11 @@ fastify.get(`/`, (request, reply) => {
   reply.view(`/src/pages/index.hbs`, params);
 });
 
+//Displays individual pages from the public/places directory.
+fastify.get(`/places/*`, (request, reply) => {
+  console.log(request);
+});
+
 // Run the server and report out to the logs
 fastify.listen(process.env.PORT, `0.0.0.0`, (err, address) => {
   if (err) {
