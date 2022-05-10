@@ -22,6 +22,9 @@ fastify.register(require("point-of-view"), {
   }
 });
 
+//Require handlebars so we can use it in our own page generation.
+const handlebars = require("handlebars");
+
 //Used to sanitise our wikilinks page names.
 function sanitisePageNames(name) {
   let sanitised = sanitize(name).split(" ").join("-").toLowerCase();
@@ -46,6 +49,7 @@ if (seo.url === "glitch-default") {
 //------------------------------------------------------------------------------
 var lastModifiedPlaces = JSON.parse(fs.readFileSync('last-modified.json', 'utf8'));
 var updatedLastModified = false;
+var handlebarTemplate = null;
 
 try {
   //First get all the files in our root places directory.
@@ -87,12 +91,20 @@ try {
         let data = fs.readFileSync(`places/${markdownFile}`, {encoding: `utf-8`});
         let filename = sanitisePageNames(placeName) + `.html`;
 
-        //TODO: Update this to use a handbrake template to create a full page.
-        let renderedContents = md.use(wikilinks).render(`# ${placeName} \n ${data}`);
+        //Render our markdown to html.
+        let renderedMarkdown = md.use(wikilinks).render(`# ${placeName} \n ${data}`);
+        
+        //Compile our handlebars template if necessary.
+        if(handlebarTemplate == null) {
+          handlebarTemplate = handlebars.compile(`src/pages/placeTemplate.hbs`);
+        }
+        
+        //Generate our full html page.
+        let fullPage = handlebarTemplate({ "renderedMarkdown" : renderedMarkdown });
 
         try {
           console.log(`Writing public/places/${filename}...`);
-          fs.writeFileSync(`public/places/${filename}`, renderedContents);
+          fs.writeFileSync(`public/places/${filename}`, fullPage);
         }
         catch (err) {
           console.log(`Could not write public/places/${filename}. Error: ${err}`);

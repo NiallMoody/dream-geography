@@ -41,12 +41,9 @@ body {
 }
 
 h1 {
-  font-size: 110%;
-  margin
-}
-
-h2 {
-  font-size: 150%;
+  font-size: 160%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 a {
@@ -63,6 +60,17 @@ a:visited {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+#headerLinks {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+#title {
+  font-size: 110%;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }
 
 #content {
