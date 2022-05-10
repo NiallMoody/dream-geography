@@ -11,3 +11,39 @@ body {
   font-family: alike_angularregular, serif;
   font-size: 1.5em;
 }
+
+@media screen and (orientation: landscape) {
+  #main {
+    max-width: 60%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  #main {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width: 1200px) {
+	#main {
+		width: 80%;
+	}
+}
+
+@media screen and (orientation: landscape) and (max-width: 930px) {
+	#main {
+		width: 100%;
+	}
+}
+
+a {
+  font-weight: bold;
+}
+
+#header {
+  position: relative;
+  width: 100%;
+  text-align: right;
+}
