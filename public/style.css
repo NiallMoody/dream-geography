@@ -54,3 +54,9 @@ a:visited {
   width: 100%;
   text-align: right;
 }
+
+#content {
+  mask-image: linear-gradient(to bottom, transparent, black, transparent);
+  mask-image-size: 300% 100%;
+  animation: fade-in 
+}
