@@ -40,6 +40,15 @@ body {
 	}
 }
 
+h1 {
+  font-size: 110%;
+  margin
+}
+
+h2 {
+  font-size: 150%;
+}
+
 a {
   font-weight: bold;
   color: #28204c;
@@ -51,12 +60,23 @@ a:visited {
 
 #header {
   position: relative;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  text-align: right;
 }
 
 #content {
-  mask-image: linear-gradient(to bottom, transparent, black, transparent);
-  mask-image-size: 300% 100%;
-  animation: fade-in 
+  mask-image: linear-gradient(to bottom, black, black, transparent, transparent);
+  mask-size: 100% 400%;
+  animation: fade-in 10s forwards;
+}
+
+@keyframes fade-in {
+  from {
+    mask-position: bottom;
+  }
+  
+  to {
+    mask-position: top;
+  }
 }
