@@ -96,11 +96,19 @@ try {
         
         //Compile our handlebars template if necessary.
         if(handlebarTemplate == null) {
-          handlebarTemplate = handlebars.compile(`src/pages/placeTemplate.hbs`);
+          try {
+            console.log(`Reading src/pages/placeTemplate.hbs`);
+            
+            let templateContents = fs.readFileSync(`src/pages/placeTemplate.hbs`, {encoding: `utf-8`});
+            handlebarTemplate = handlebars.compile(templateContents, {noEscape: true});
+          }
+          catch (err) {
+            console.log(`Could not read placeTemplate.hbs. Error: ${err}`);
+          }
         }
         
         //Generate our full html page.
-        let fullPage = handlebarTemplate({ "renderedMarkdown" : renderedMarkdown });
+        let fullPage = handlebarTemplate({ "renderedMarkdown" : renderedMarkdown, "placeName" : placeName });
 
         try {
           console.log(`Writing public/places/${filename}...`);
