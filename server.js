@@ -51,12 +51,17 @@ var lastModifiedPlaces = JSON.parse(fs.readFileSync('last-modified.json', 'utf8'
 var updatedLastModified = false;
 var handlebarTemplate = null;
 
+//Our available place URLs.
+var placesUrls = [];
+
 try {
   //First get all the files in our root places directory.
-  let places = fs.readdirSync(`places`);
-  for(let index in places) {
-    let markdownFile = places[index];
+  let placesFiles = fs.readdirSync(`places`);
+  for(let index in placesFiles) {
+    let markdownFile = placesFiles[index];
     let placeName = markdownFile.substring(0, markdownFile.length - 3);
+    
+    placesUrls.push(`places/${sanitisePageNames(placeName)}.html`);
     
     //Get the last modified time of this place.
     let fileStats = fs.statSync(`places/${markdownFile}`);
@@ -136,6 +141,19 @@ if(updatedLastModified) {
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
+//Random number generator, taken from this stackoverflow answer:
+//https://stackoverflow.com/a/47593316
+function mulberry32(a) {
+    return function() {
+      var t = a += 0x6D2B79F5;
+      t = Math.imul(t ^ t >>> 15, t | 1);
+      t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    }
+}
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 //Our home page route
 fastify.get(`/`, (request, reply) => {
   // params is an object we'll pass to our handlebars template
@@ -143,6 +161,13 @@ fastify.get(`/`, (request, reply) => {
   
   // The Handlebars code will be able to access the parameter values and build them into the page
   reply.view(`/src/pages/index.hbs`, params);
+});
+
+fastify.get(`/todays-dream`, (request, reply) => {
+  let dateInteger = new Date().getTime();
+  let index = mulberry32(dateInteger) % placesUrls.length;
+  
+  console.log(`dateInteger: ${dateInteger} random index: ${index});
 });
 
 //Displays individual pages from the public/places directory.
