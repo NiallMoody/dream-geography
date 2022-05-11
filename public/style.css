@@ -79,6 +79,29 @@ a:visited {
   animation: fade-in 10s forwards;
 }
 
+#entry {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+#entryMiddle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#entryInner {
+  margin: 0 auto;
+}
+
+#entryText {
+  font-size: 250%;
+}
+
+/*#entryLink {
+  
+}*/
+
 @keyframes fade-in {
   from {
     mask-position: bottom;
