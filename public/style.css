@@ -49,12 +49,20 @@ body {
 #main {
   position: relative;
 	height: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 h1 {
   font-size: 160%;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 130%;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
 }
 
 a {
