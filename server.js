@@ -154,11 +154,12 @@ function mulberry32(a) {
 //------------------------------------------------------------------------------
 //Our home page route
 fastify.get(`/`, (request, reply) => {
-  //params is an object we'll pass to our handlebars template
-  let params = { seo: seo };
-  
-  //TGhe Handlebars code will be able to access the parameter values and build them into the page
-  reply.view(`/src/pages/index.hbs`, params);
+  reply.view(`/src/pages/index.hbs`, {});
+});
+
+//Our about page.
+fastify.get(`/about`, (request, reply) => {
+  reply.view(`/src/pages/about.hbs`, {});
 });
 
 //We use this to ensure we serve the same random page for everyone who views the
