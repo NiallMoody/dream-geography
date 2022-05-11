@@ -7,11 +7,16 @@
 
 }
 
+html {
+	height: 100%;
+}
+
 body {
   font-family: alike_angularregular, serif;
   font-size: 1.5em;
   background-color: #B4D5D4;
   color: #283E48;
+  height: 100%;
 }
 
 @media screen and (orientation: landscape) {
@@ -38,6 +43,11 @@ body {
 	#main {
 		width: 100%;
 	}
+}
+
+#main {
+  position: relative;
+	height: 100%;
 }
 
 h1 {
@@ -81,13 +91,18 @@ a:visited {
 
 #entry {
   display: table;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
 }
 
 #entryMiddle {
   display: table-cell;
   vertical-align: middle;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 #entryInner {
@@ -95,12 +110,12 @@ a:visited {
 }
 
 #entryText {
-  font-size: 250%;
+  font-size: 300%;
 }
 
-/*#entryLink {
-  
-}*/
+#entryLink {
+  font-size: 150%;
+}
 
 @keyframes fade-in {
   from {
