@@ -3,13 +3,13 @@ const fs = require("fs");
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-// Require the fastify framework and instantiate it
+//Require the fastify framework and instantiate it
 const fastify = require("fastify")({
   logger: false
 });
 
 
-// Setup our static files
+//Setup our static files
 fastify.register(require("@fastify/static"), {
   root: path.join(__dirname, "public"),
   prefix: "/" // optional: default '/'
@@ -39,7 +39,7 @@ const wikilinks = require("markdown-it-wikilinks")({ postProcessPageName:sanitis
 //Make sure we can sanitise filenames.
 var sanitize = require("sanitize-filename");
 
-// Load and parse SEO data
+//Load and parse SEO data
 const seo = require("./src/seo.json");
 if (seo.url === "glitch-default") {
   seo.url = `https://${process.env.PROJECT_DOMAIN}.glitch.me`;
@@ -144,30 +144,31 @@ if(updatedLastModified) {
 //Random number generator, taken from this stackoverflow answer:
 //https://stackoverflow.com/a/47593316
 function mulberry32(a) {
-    return function() {
-      var t = a += 0x6D2B79F5;
-      t = Math.imul(t ^ t >>> 15, t | 1);
-      t ^= t + Math.imul(t ^ t >>> 7, t | 61);
-      return ((t ^ t >>> 14) >>> 0) / 4294967296;
-    }
+    var t = a += 0x6D2B79F5;
+    t = Math.imul(t ^ t >>> 15, t | 1);
+    t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+    return ((t ^ t >>> 14) >>> 0);
 }
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 //Our home page route
 fastify.get(`/`, (request, reply) => {
-  // params is an object we'll pass to our handlebars template
+  //params is an object we'll pass to our handlebars template
   let params = { seo: seo };
   
-  // The Handlebars code will be able to access the parameter values and build them into the page
+  //TGhe Handlebars code will be able to access the parameter values and build them into the page
   reply.view(`/src/pages/index.hbs`, params);
 });
 
+//We use this to ensure we serve the same random page for everyone who views the
+//site on any given day of the year.
 fastify.get(`/todays-dream`, (request, reply) => {
-  let dateInteger = new Date().getTime();
-  let index = mulberry32(dateInteger) % placesUrls.length;
+  let dateObject = new Date();
+  let dateInteger = dateObject.getFullYear() + dateObject.getMonth() + dateObject.getDate();
+  let index = (mulberry32(dateInteger) % placesUrls.length);
   
-  console.log(`dateInteger: ${dateInteger} random index: ${index});
+  reply.redirect(placesUrls[index]);
 });
 
 //Displays individual pages from the public/places directory.
@@ -175,7 +176,7 @@ fastify.get(`/places/*`, (request, reply) => {
   return reply.sendFile(request.url);
 });
 
-// Run the server and report out to the logs
+//Run the server and report out to the logs
 fastify.listen(process.env.PORT, `0.0.0.0`, (err, address) => {
   if (err) {
     console.log(err);
