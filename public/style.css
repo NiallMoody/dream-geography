@@ -54,10 +54,20 @@ body {
   padding-right: 8px;
 }
 
+a {
+  font-weight: bold;
+  color: #3b365e;
+}
+
 h1 {
   font-size: 160%;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+h1 a {
+  color: #283E48;
+  text-decoration: none;
 }
 
 h2 {
@@ -66,13 +76,13 @@ h2 {
   margin-bottom: 0.3em;
 }
 
-a {
-  font-weight: bold;
+a:visited {
   color: #3b365e;
 }
 
-a:visited {
-  color: #3b365e;
+h1 a:visited {
+  color: #283E48;
+  text-decoration: none;
 }
 
 hr {
