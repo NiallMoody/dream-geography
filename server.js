@@ -174,7 +174,19 @@ fastify.get(`/todays-dream`, (request, reply) => {
 
 //Displays individual pages from the public/places directory.
 fastify.get(`/places/*`, (request, reply) => {
-  return reply.sendFile(request.url);
+  let url = request.url;
+  
+  if(url.length > 5) {
+    if(url.substring(url.length - 5) != `.html`) {
+      url += `.html`;
+    }
+  }
+  else {
+    url += `.html`;
+  }
+  console.log(url);
+  
+  return reply.sendFile(url);
 });
 
 //Run the server and report out to the logs

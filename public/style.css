@@ -74,6 +74,13 @@ a:visited {
   color: #3b365e;
 }
 
+hr {
+  border: none;
+  border-top: 2px solid #283E48;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
 #header {
   position: relative;
   display: flex;
