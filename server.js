@@ -173,12 +173,18 @@ function getImage(placeName) {
 //------------------------------------------------------------------------------
 //Our home page route
 fastify.get(`/`, (request, reply) => {
-  reply.view(`/src/pages/index.hbs`, {});
+  let dateObject = new Date();
+  let dateInteger = dateObject.getFullYear() + dateObject.getMonth() + dateObject.getDate();
+  
+  reply.view(`/src/pages/index.hbs`, { "backImage" : backImages[dateInteger % backImages.length] });
 });
 
 //Our about page.
 fastify.get(`/about`, (request, reply) => {
-  reply.view(`/src/pages/about.hbs`, {});
+  let dateObject = new Date();
+  let dateInteger = dateObject.getFullYear() + dateObject.getMonth() + dateObject.getDate();
+  
+  reply.view(`/src/pages/about.hbs`, { "backImage" : backImages[dateInteger % backImages.length] });
 });
 
 //We use this to ensure we serve the same random page for everyone who views the
