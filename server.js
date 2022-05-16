@@ -34,7 +34,7 @@ function sanitisePageNames(name) {
 //Load our markdown renderer.
 var md = require("markdown-it")();
 //...and the plugin to support wikilinks.
-const wikilinks = require("markdown-it-wikilinks")({ postProcessPageName:sanitisePageNames });
+const wikilinks = require("markdown-it-wikilinks")({ postProcessPageName:sanitisePageNames, uriSuffix:`` });
 
 //Make sure we can sanitise filenames.
 var sanitize = require("sanitize-filename");
@@ -54,6 +54,12 @@ var handlebarTemplate = null;
 //Our available place URLs.
 var placesUrls = [];
 
+//Our background image assets.
+var backImages = [`https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back00.jpg?v=1652713420583`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back01.jpg?v=1652713420583`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back02.jpg?v=1652713420583`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back03.jpg?v=1652713420583`];
+
 try {
   //First get all the files in our root places directory.
   let placesFiles = fs.readdirSync(`places`);
@@ -61,7 +67,7 @@ try {
     let markdownFile = placesFiles[index];
     let placeName = markdownFile.substring(0, markdownFile.length - 3);
     
-    placesUrls.push(`places/${sanitisePageNames(placeName)}.html`);
+    placesUrls.push(`places/${sanitisePageNames(placeName)}`);
     
     //Get the last modified time of this place.
     let fileStats = fs.statSync(`places/${markdownFile}`);
@@ -184,7 +190,6 @@ fastify.get(`/places/*`, (request, reply) => {
   else {
     url += `.html`;
   }
-  console.log(url);
   
   return reply.sendFile(url);
 });

@@ -17,5 +17,5 @@
   - [ ] Entry page image is `date % numImages`
   - [ ] About page image is ???
 - [*] ~~Style `<hr>`~~
-- [ ] Serve places pages without the .html extension
+- [*] ~~Serve places pages without the .html extension~~
 
