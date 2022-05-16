@@ -58,7 +58,15 @@ var placesUrls = [];
 var backImages = [`https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back00.jpg?v=1652713420583`,
                   `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back01.jpg?v=1652713420583`,
                   `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back02.jpg?v=1652713420583`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back03.jpg?v=1652713420583`];
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back03.jpg?v=1652713420583`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back04.jpg?v=1652727003693`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back05.jpg?v=1652727003846`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back06.jpg?v=1652727004070`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back07.jpg?v=1652727004010`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back08.jpg?v=1652727004039`];
+
+//Set to true to regenerate *ALL* pages when the server restarts.
+var regenerate = false;
 
 try {
   //First get all the files in our root places directory.
@@ -75,7 +83,7 @@ try {
     //If we already have a record of it in last-modified.json, check if the most
     //recent last-modified time is newer than the last one we stored in
     //last-modified.json.
-    if(markdownFile in lastModifiedPlaces) {
+    if((markdownFile in lastModifiedPlaces) && !regenerate) {
       let lastDate = new Date(lastModifiedPlaces[markdownFile]);
       
       if(fileStats.mtime > lastDate) {

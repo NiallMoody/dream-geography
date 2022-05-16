@@ -11,6 +11,7 @@
   - [ ] Who am I?
 - [*] ~~Import other markdown files~~
 - [ ] Background images
+  - [ ] Switch background image to be fixed div, not scrolling body
   - [ ] Create 14 images
   - [*] ~~Link background images to places w/RNG seeded by their name turned into an integer~~
   - [*] ~~Entry page image is `date % numImages`~~
