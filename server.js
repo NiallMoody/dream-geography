@@ -119,7 +119,7 @@ try {
         }
         
         //Generate our full html page.
-        let fullPage = handlebarTemplate({ "renderedMarkdown" : renderedMarkdown, "placeName" : placeName });
+        let fullPage = handlebarTemplate({ "renderedMarkdown" : renderedMarkdown, "placeName" : placeName, "backImage": getImage(placeName) });
 
         try {
           console.log(`Writing public/places/${filename}...`);
@@ -154,6 +154,19 @@ function mulberry32(a) {
     t = Math.imul(t ^ t >>> 15, t | 1);
     t ^= t + Math.imul(t ^ t >>> 7, t | 61);
     return ((t ^ t >>> 14) >>> 0);
+}
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+//Select a background image for the passed-in place name.
+function getImage(placeName) {
+  let val = 0;
+  
+  for(let i=0;i<placeName.length;++i) {
+    val += placeName.charCodeAt(i);
+  }
+  
+  return backImages[val % backImages.length];
 }
 
 //------------------------------------------------------------------------------
