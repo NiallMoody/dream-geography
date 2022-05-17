@@ -192,7 +192,7 @@ fastify.get(`/about`, (request, reply) => {
   let dateObject = new Date();
   let dateInteger = dateObject.getFullYear() + dateObject.getMonth() + dateObject.getDate();
   
-  reply.view(`/src/pages/about.hbs`, { "backImage" : backImages[dateInteger % backImages.length] });
+  reply.view(`/src/pages/about.hbs`, { "backImage" : backImages[(dateInteger + 3) % backImages.length] });
 });
 
 //We use this to ensure we serve the same random page for everyone who views the
