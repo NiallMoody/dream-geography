@@ -40,10 +40,10 @@ const wikilinks = require("markdown-it-wikilinks")({ postProcessPageName:sanitis
 var sanitize = require("sanitize-filename");
 
 //Load and parse SEO data
-const seo = require("./src/seo.json");
+/*const seo = require("./src/seo.json");
 if (seo.url === "glitch-default") {
   seo.url = `https://${process.env.PROJECT_DOMAIN}.glitch.me`;
-}
+}*/
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
