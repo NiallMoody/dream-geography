@@ -12,6 +12,7 @@
   - [*] ~~Link background images to places w/RNG seeded by their name turned into an integer~~
   - [*] ~~Entry page image is `date % numImages`~~
   - [*] ~~About page image is `date % numImages`~~
+- [ ] Make entry font size fit my phone
 - [ ] Page listing all the places? (maybe it's a secret?)
 - [ ] Update LICENSE
 - [ ] Boost
