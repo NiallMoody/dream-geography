@@ -63,7 +63,12 @@ var backImages = [`https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c
                   `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back05.jpg?v=1652727003846`,
                   `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back06.jpg?v=1652727004070`,
                   `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back07.jpg?v=1652727004010`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back08.jpg?v=1652727004039`];
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back08.jpg?v=1652727004039`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back09.jpg?v=1652815230374`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back10.jpg?v=1652815230426`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back11.jpg?v=1652815230464`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back12.jpg?v=1652815230306`,
+                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back13.jpg?v=1652815230695`];
 
 //Set to true to regenerate *ALL* pages when the server restarts.
 var regenerate = false;

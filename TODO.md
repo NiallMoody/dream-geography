@@ -6,12 +6,6 @@
   - [ ] Link to glitch project
   - [ ] Who am I?
   - [ ] This site was last updated...
-- [ ] Background images
-  - [*] ~~Switch background image to be fixed div, not scrolling body~~
-  - [ ] Create 14 images
-  - [*] ~~Link background images to places w/RNG seeded by their name turned into an integer~~
-  - [*] ~~Entry page image is `date % numImages`~~
-  - [*] ~~About page image is `date % numImages`~~
 - [ ] Page listing all the places? (maybe it's a secret?)
 - [ ] Update LICENSE
 - [ ] Boost
@@ -26,4 +20,10 @@
 - [*] ~~Style `<hr>`~~
 - [*] ~~Serve places pages without the .html extension~~
 - [*] ~~Make entry font size fit my phone~~
+- [*] ~~Background images~~
+  - [*] ~~Switch background image to be fixed div, not scrolling body~~
+  - [*] ~~Create 14 images~~
+  - [*] ~~Link background images to places w/RNG seeded by their name turned into an integer~~
+  - [*] ~~Entry page image is `date % numImages`~~
+  - [*] ~~About page image is `date % numImages`~~
 
