@@ -1,37 +1,44 @@
-The LICENSE file for any project gives credit to the creator/author of the 
-project, copyright information for the project, and the legal terms under 
-which it's being shared. In other words, this is us using an MIT license to
-say "we wrote this and you can do whatever you want with it."
+********************************************************************************
+telemaphoneroo
+********************************************************************************
 
-******************************************************************************
-~glitch-hello-node
-******************************************************************************
-MIT License
+ANTI-CAPITALIST SOFTWARE LICENSE (v 1.4)
 
-Copyright (c) 2021, Glitch, Inc.
+Copyright © 2021 Niall Moody
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This is anti-capitalist software, released for free use by individuals and
+organizations that do not operate by capitalist principles.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person or organization (the
+"User") obtaining a copy of this software and associated documentation files
+(the "Software"), to use, copy, modify, merge, distribute, and/or sell copies of
+the Software, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+1. The above copyright notice and this permission notice shall be included in
+all copies or modified versions of the Software.
+
+2. The User is one of the following:
+a. An individual person, laboring for themselves
+b. A non-profit organization
+c. An educational institution
+d. An organization that seeks shared profit for all of its members, and allows
+   non-members to set the cost of their labor
+
+3. If the User is an organization with owners, then all owners are workers and
+   all workers are owners with equal equity and/or equal vote.
+
+4. If the User is an organization, then the User is not law enforcement or
+   military, or working for or under either.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT EXPRESS OR IMPLIED WARRANTY OF ANY
+KIND, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-
-
-******************************************************************************
+********************************************************************************
 
 THIRD-PARTY SOFTWARE
 
@@ -40,14 +47,14 @@ THIRD-PARTY SOFTWARE
 2. fastify-static: Plugin for serving static files as fast as possible.
 3. handlebars.js: Minimal templating on steroids
 4. point-of-view: Templates rendering plugin support for Fastify.
-5. HK Grotesk: The font we're using. 
+5. socket.io: Used to enable client-server communication.
 
 
-******************************************************************************
+********************************************************************************
 1. fastify (also applies to fastify-formbody)
 URL: https://www.fastify.io/
      https://github.com/fastify/fastify
-******************************************************************************
+********************************************************************************
 MIT License
 
 Copyright (c) 2016-2020 The Fastify Team
@@ -72,15 +79,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-******************************************************************************
+********************************************************************************
 END, fastify
-******************************************************************************
+********************************************************************************
 
 
-******************************************************************************
+********************************************************************************
 2. fastify-static
 URL: https://github.com/fastify/fastify-static
-******************************************************************************
+********************************************************************************
 MIT License
 
 Copyright (c) 2017-2018 Fastify
@@ -102,16 +109,16 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-******************************************************************************
+********************************************************************************
 END, fastify-static
-******************************************************************************
+********************************************************************************
 
 
-******************************************************************************
+********************************************************************************
 3. handlebars.js
 URL: https://handlebarsjs.com/
      https://github.com/handlebars-lang/handlebars.js
-******************************************************************************
+********************************************************************************
 Copyright (C) 2011-2019 by Yehuda Katz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -131,15 +138,15 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-******************************************************************************
+********************************************************************************
 END, fastify-static
-******************************************************************************
+********************************************************************************
 
 
-******************************************************************************
+********************************************************************************
 4. point-of-view
 URL: https://github.com/fastify/point-of-view
-******************************************************************************
+********************************************************************************
 MIT License
 
 Copyright (c) 2017 Fastify
@@ -161,19 +168,106 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-******************************************************************************
+********************************************************************************
 END, point-of-view
-******************************************************************************
+********************************************************************************
 
 
-******************************************************************************
-5. HK Grotesk
-URL: https://hanken.co/products/hk-grotesk
-******************************************************************************
-HK Grotesk was designed by Hanken Design Co. It is shared using a SIL OFL
-license. Full license text can be found at:
+********************************************************************************
+5. markdown-it
+URL: https://github.com/markdown-it/markdown-it
+********************************************************************************
+MIT License
 
-https://hanken.co/pages/web-fonts-eula
-******************************************************************************
-END, HK Grotesk
-******************************************************************************
+Copyright (c) 2014 Vitaly Puzrin, Alex Kocharin.
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+********************************************************************************
+END, markdown-it
+********************************************************************************
+
+
+********************************************************************************
+6. markdown-it-wikilinks
+URL: https://github.com/jsepia/markdown-it-wikilinks
+********************************************************************************
+MIT License
+
+Copyright (c) 2016 Julio Sepia
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+********************************************************************************
+END, markdown-it-wikilinks
+********************************************************************************
+
+
+********************************************************************************
+7. sanitize-filename
+URL: https://github.com/parshap/node-sanitize-filename
+********************************************************************************
+This project is licensed under the WTFPL and ISC licenses.
+WTFPL
+
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE Version 2, December 2004
+
+Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+
+Everyone is permitted to copy and distribute verbatim or modified copies of this
+license document, and changing it is allowed as long as the name is changed.
+
+DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE TERMS AND CONDITIONS FOR COPYING,
+DISTRIBUTION AND MODIFICATION
+
+    You just DO WHAT THE FUCK YOU WANT TO.
+
+ISC
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.
+********************************************************************************
+END, sanitize-filename
+********************************************************************************

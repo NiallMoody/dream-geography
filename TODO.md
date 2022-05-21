@@ -7,8 +7,6 @@
   - [ ] Who am I?
   - [ ] This site was last updated...
 - [ ] Page listing all the places? (maybe it's a secret?) (/places/ ?)
-- [ ] Include social preview stuff
-- [ ] Update LICENSE
 - [ ] Boost
 
 ---
@@ -27,4 +25,6 @@
   - [*] ~~Link background images to places w/RNG seeded by their name turned into an integer~~
   - [*] ~~Entry page image is `date % numImages`~~
   - [*] ~~About page image is `date % numImages`~~
+- [*] ~~Include social preview stuff~~
+- [*] ~~Update LICENSE~~
 
