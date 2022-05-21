@@ -51,6 +51,9 @@ var lastModifiedPlaces = JSON.parse(fs.readFileSync('last-modified.json', 'utf8'
 var updatedLastModified = false;
 var handlebarTemplate = null;
 
+var lastSiteUpdate = new Date(lastModifiedPlaces["lastSiteUpdate"]);
+delete lastModifiedPlaces["lastSiteUpdate"];
+
 //Our available place URLs.
 var placesUrls = [];
 
