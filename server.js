@@ -70,8 +70,10 @@ var backImages = [`https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c
                   `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back12.jpg?v=1652815230306`,
                   `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back13.jpg?v=1652815230695`];
 
+//------------------------------------------------------------------------------
 //Set to true to regenerate *ALL* pages when the server restarts.
 var regenerate = false;
+//------------------------------------------------------------------------------
 
 try {
   //First get all the files in our root places directory.

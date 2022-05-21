@@ -7,6 +7,7 @@
   - [ ] Who am I?
   - [ ] This site was last updated...
 - [ ] Page listing all the places? (maybe it's a secret?) (/places/ ?)
+- [ ] Include social preview stuff
 - [ ] Update LICENSE
 - [ ] Boost
 
