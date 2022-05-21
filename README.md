@@ -1,45 +1,68 @@
-Font: [Alike Angular](https://fonts.google.com/specimen/Alike+Angular)
+# dream geography
+
+## What is this?
+
+[I](https://www.niallmoody.com) tend to have (somewhat intermittently) recurring
+dreams, and I realised a while ago that the landscapes and places in my dreams
+seem to be consistent across entirely separate dreams. i.e. I have visited
+places in one dream that I previously visited in a different dream. And in the
+course of a single dream I have even travelled from locations I visited in that
+dream to locations I previously visited in an entirely separate dream.
+
+On top of this, all my dreams seem to take place in Scotland, with cities and
+towns that mirror cities and towns from the waking world. Only, the 
+of these places vary from being very similar to their waking counterparts, to
+**very** different from their waking counterparts.
+
+The strange sense I get that my dreams exhibit a consistent, shared geography,
+one that mirrors the waking world according to a logic I don't understand, led
+me to start recording the places I have visited in my dreams.
+
+This site is a record of those places I have visited in my dreams, with
+hyperlinks to document the connections between different places. The
+[today's dream](https://dream-geography.glitch.me/todays-dream) link will serve
+up a page chosen randomly based on the current date.
+
+## Technical details
+
+I've been documenting my dreams as markdown files in
+[Obsidian](https://obsidian.md/), stored locally on my harddrive (and mirrored
+to my phone using [SyncThing](https://syncthing.net/)). This site is effectively
+a custom static site generator written in node.js that generates html pages for
+each markdown file. The idea is that updating this site should be as easy as
+just uploading a new markdown file whenever I document a new place.
+
+## License
+
+**dream geography** was created (and will be sporadically updated) by
+[Niall Moody](https://www.niallmoody.com)
+
+The game and its source code is released under the Anti-Capitalist Software
+License. You can read the full text of the license and its rationale
+[here](https://anticapitalist.software/), but if you're looking for a summary,
+the important part is:
+
+```
+This is anti-capitalist software, released for free use by individuals and
+organizations that do not operate by capitalist principles.
+```
 
 
-# Hello Node!
+You can view the
+[source code for this site on glitch](https://glitch.com/edit/#!/dream-geography)
 
-This project includes a Node.js server script and a web page that connects to it. The front-end page presents a form the visitor can use to submit a color name, sending the submitted value to the back-end API running on the server. The server returns info to the page that allows it to update the display with the chosen color. 🎨
+## Infrastructure Credits
 
-[Node.js](https://nodejs.org/en/about/) is a popular runtime that lets you run server-side JavaScript. This project uses the [Fastify](https://www.fastify.io/) framework and explores basic templating with [Handlebars](https://handlebarsjs.com/).
+dream geography is built on the following platforms, frameworks, libraries, and
+fonts:
 
-## Prerequisites
-
-You'll get best use out of this project if you're familiar with basic JavaScript. If you've written JavaScript for client-side web pages this is a little different because it uses server-side JS, but the syntax is the same!
-
-## What's in this project?
-
-← `README.md`: That’s this file, where you can tell people what your cool website does and how you built it.
-
-← `public/style.css`: The styling rules for the pages in your site.
-
-← `server.js`: The **Node.js** server script for your new site. The JavaScript defines the endpoints in the site back-end, one to return the homepage and one to update with the submitted color. Each one sends data to a Handlebars template which builds these parameter values into the web page the visitor sees.
-
-← `package.json`: The NPM packages for your project's dependencies.
-
-← `src/`: This folder holds the site template along with some basic data files.
-
-← `src/pages/index.hbs`: This is the main page template for your site. The template receives parameters from the server script, which it includes in the page HTML. The page sends the user submitted color value in the body of a request, or as a query parameter to choose a random color.
-
-← `src/colors.json`: A collection of CSS color names. We use this in the server script to pick a random color, and to match searches against color names.
-
-← `src/seo.json`: When you're ready to share your new site or add a custom domain, change SEO/meta settings in here.
-
-## Try this next 🏗️
-
-Take a look in `TODO.md` for next steps you can try out in your new site!
-
-___Want a minimal version of this project to build your own Node.js app? Check out [Blank Node](https://glitch.com/edit/#!/remix/glitch-blank-node)!___
-
-![Glitch](https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2FLogo_Color.svg?v=1602781328576)
-
-## You built this with Glitch!
-
-[Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
-
-- Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
-- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.
+- [Glitch](https://glitch.com/) - The web hosting platform the site runs on
+- [Node.js](https://nodejs.org/en/) - Javascript runtime running on glitch
+- [Fastify](https://www.fastify.io/) - Web framework to serve pages from glitch
+- [fastify-static](https://github.com/fastify/fastify-static) - Fastify plugin to serve static pages
+- [Handlebars](https://handlebarsjs.com/) - Web page template engine
+- [point-of-view](https://github.com/fastify/point-of-view) - Fastify plugin to support template engines like Handlebars
+- [markdown-it](https://github.com/markdown-it/markdown-it) - Javascript library to render markdown as html
+- [markdown-it-wikilinks](https://github.com/jsepia/markdown-it-wikilinks) - Addon for markdown-it to support wiki-style links, as used in Obsidian
+- [sanitize-filename](https://github.com/parshap/node-sanitize-filename) - Used to transform the markdown places names into a URL-friendly format
+- [Alike Angular](https://fonts.google.com/specimen/Alike+Angular) - Site font.

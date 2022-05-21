@@ -1,7 +1,6 @@
 # TODO 🚧
 
 - [ ] Page listing all the places? (maybe it's a secret?) (/places/ ?)
-- [ ] Boost
 
 ---
 
@@ -27,5 +26,4 @@
   - [*] ~~Link to glitch project~~
   - [*] ~~Who am I?~~
   - [*] ~~This site was last updated...~~
-
-
+- [*] ~~Boost~~
