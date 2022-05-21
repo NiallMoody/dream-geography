@@ -65,4 +65,4 @@ fonts:
 - [markdown-it](https://github.com/markdown-it/markdown-it) - Javascript library to render markdown as html
 - [markdown-it-wikilinks](https://github.com/jsepia/markdown-it-wikilinks) - Addon for markdown-it to support wiki-style links, as used in Obsidian
 - [sanitize-filename](https://github.com/parshap/node-sanitize-filename) - Used to transform the markdown places names into a URL-friendly format
-- [Alike Angular](https://fonts.google.com/specimen/Alike+Angular) - Site font.
+- [Alike Angular](https://fonts.google.com/specimen/Alike+Angular) - Site font
