@@ -1,11 +1,5 @@
 # TODO 🚧
 
-- [ ] About page
-  - [*] ~~Infrastructure Credits~~
-  - [*] ~~License~~
-  - [*] ~~Link to glitch project~~
-  - [*] ~~Who am I?~~
-  - [ ] This site was last updated...
 - [ ] Page listing all the places? (maybe it's a secret?) (/places/ ?)
 - [ ] Boost
 
@@ -27,4 +21,11 @@
   - [*] ~~About page image is `date % numImages`~~
 - [*] ~~Include social preview stuff~~
 - [*] ~~Update LICENSE~~
+- [*] ~~About page~~
+  - [*] ~~Infrastructure Credits~~
+  - [*] ~~License~~
+  - [*] ~~Link to glitch project~~
+  - [*] ~~Who am I?~~
+  - [*] ~~This site was last updated...~~
+
 

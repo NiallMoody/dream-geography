@@ -160,7 +160,11 @@ catch (err) {
 if(updatedLastModified) {
   //Write any changes to last-modified.json.
   console.log(`Updating last-modified.json...`);
+  
+  lastModifiedPlaces["lastSiteUpdate"] = new Date();
   fs.writeFileSync(`last-modified.json`, JSON.stringify(lastModifiedPlaces));
+  
+  delete lastModifiedPlaces["lastSiteUpdate"];
 }
 
 //------------------------------------------------------------------------------
@@ -202,7 +206,7 @@ fastify.get(`/about`, (request, reply) => {
   let dateObject = new Date();
   let dateInteger = dateObject.getFullYear() + dateObject.getMonth() + dateObject.getDate();
   
-  reply.view(`/src/pages/about.hbs`, { "backImage" : backImages[(dateInteger + 3) % backImages.length] });
+  reply.view(`/src/pages/about.hbs`, { "backImage" : backImages[(dateInteger + 3) % backImages.length], "lastUpdated" : lastSiteUpdate.toString() });
 });
 
 //We use this to ensure we serve the same random page for everyone who views the
