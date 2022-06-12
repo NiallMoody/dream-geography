@@ -1,0 +1,1 @@
+On the ground floor of a multi-story car park, a pop-up bookshop. A table covered with books by queer authors. If you're in a bad situation, talk to the person behind the table; they will get you to safety.
