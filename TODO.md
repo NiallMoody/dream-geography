@@ -1,6 +1,8 @@
 # TODO 🚧
 
-- [ ] Page listing all the places? (maybe it's a secret?) (/places/ ?)
+- [ ] Map listing all the places
+  - [ ] Draw the map by hand. Pencil first, then ink.
+  - [ ] The map only appears as a link at <certain times of day?/certain days of the week?>
 
 ---
 
