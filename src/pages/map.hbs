@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <meta name="author" content="Niall Moody" />
+    <meta name="copyright" content="Niall Moody" />
+    <meta name="description" content="A record of the places I have visited in my dreams." />
+    <meta name="keywords" content="dream,geography,journal" />
+
+    <meta property="og:image" content="https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/Thumbnail.jpg?v=1653129929843" />
+    <meta property="og:title" content="dream geography" />
+    <meta property="og:description" content="A record of the places I have visited in my dreams." />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@NiallEM" />
+    <meta name="twitter:title" content="dream geography" />
+    <meta name="twitter:description" content="A record of the places I have visited in my dreams." />
+    <meta name="twitter:image" content="https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/Thumbnail.jpg?v=1653129929843" />
+
+    <title>dream geography - map</title>
+
+    <link rel="stylesheet" href="../style.css" />
+    
+    <style>
+      #background {
+        background: url('{{ backImage }}');
+        background-position: center;
+        background-size: cover;
+      }
+    </style>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+    
+    <script src="map.js"></script>
+  </head>
+  
+  <body>
+    <div id="background"></div>
+    
+    <div id="main">
+      <div id="header">
+        <h1 id="title"><a href="/">dream geography</a></h1>
+        
+        <div id="headerLinks">
+          <a href="../about">?</a>
+        </div>
+      </div>
+      <div id="content">
+        <div id="map">
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

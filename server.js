@@ -219,6 +219,14 @@ fastify.get(`/todays-dream`, (request, reply) => {
   reply.redirect(placesUrls[index]);
 });
 
+//Our map page.
+fastify.get(`/map`, (request, reply) => {
+  let dateObject = new Date();
+  let dateInteger = dateObject.getFullYear() + dateObject.getMonth() + dateObject.getDate();
+  
+  reply.view(`/src/pages/map.hbs`, { "backImage" : backImages[(dateInteger + 3) % backImages.length] });
+});
+
 //Displays individual pages from the public/places directory.
 fastify.get(`/places/*`, (request, reply) => {
   let url = request.url;

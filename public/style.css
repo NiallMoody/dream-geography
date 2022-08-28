@@ -160,6 +160,10 @@ hr {
   pointer-events: auto;
 }
 
+#map {
+  height: 640px;
+}
+
 @keyframes fade-in {
   from {
     mask-position: bottom;
