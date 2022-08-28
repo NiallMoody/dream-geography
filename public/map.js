@@ -4,7 +4,7 @@ window.addEventListener('load', (event) => {
   });
 
   var bounds = [[0, 0], [578, 1000]];
-  var image = L.imageOverlay('https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/map.jpg?v=1661703228321', bounds).addTo(map);
+  var image = L.imageOverlay('https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/map-small.png?v=1661718723063', bounds).addTo(map);
 
   map.fitBounds(bounds);
 });
