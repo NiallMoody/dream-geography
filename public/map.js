@@ -15,5 +15,6 @@ window.addEventListener('load', (event) => {
   //bounds = [[0, 0], [1000, 1000]];
   imageLayer = L.imageOverlay('https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/map.jpg?v=1661703228321').addTo(map);
   
-  //map.fitBounds(bounds);
+  console.log(`overlay added:`, map);
+  setTimeout(() => {console.log(`timeout`, map); map.fitBounds(bounds);}, 1000);
 });
