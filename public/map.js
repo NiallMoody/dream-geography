@@ -43,6 +43,19 @@ window.addEventListener('load', (event) => {
     
     console.log(event.latlng);
   });
+  
+  map.on('mouseup', (event) => {
+    let foundIndex = getIndexUnderCursor(event.latlng.lat, event.latlng.lng);
+    
+    if(foundIndex > -1) {
+      if(event.originalEvent.button == 1) {
+        window.open(dreams[foundIndex].url, '_blank');
+        window.focus();
+      }
+    }
+    
+    console.log(event.latlng);
+  });
 });
   
 function distance(lat1, lng1, lat2, lng2) {
