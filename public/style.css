@@ -164,6 +164,10 @@ hr {
   height: 640px;
 }
 
+.leaflet-container {
+	background-color: 'rgba(255, 255, 255, 0.0)';
+}
+
 @keyframes fade-in {
   from {
     mask-position: bottom;
