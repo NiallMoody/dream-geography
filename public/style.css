@@ -172,18 +172,34 @@ hr {
   box-shadow: none;
   border-radius: 0px;
   border: 0;
+  font-family: alike_angularregular, serif;
+  font-size: 1.5em;
 }
 
 .leaflet-bar a {
 	background-color: rgba(0, 0, 0, 0.05);
-	border-bottom: 1px solid #ccc;
-	width: 26px;
-	height: 26px;
-	line-height: 26px;
-	display: block;
-	text-align: center;
-	text-decoration: none;
-	color: black;
+	border-bottom: 0;
+	color: #283E48;
+}
+
+.leaflet-bar a.leaflet-disabled {
+	background-color: rgba(255, 255, 255, 0.05);
+	color: #bbb;
+}
+
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	border: 0;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+	font-family: alike_angularregular, serif;
+  font-size: 1.5em;
+}
+
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out {
+  font-size: 1.5em;
 }
 
 @keyframes fade-in {
