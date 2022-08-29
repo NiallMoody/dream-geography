@@ -177,13 +177,13 @@ hr {
 }
 
 .leaflet-bar a {
-	background-color: rgba(0, 0, 0, 0.05);
+	background-color: rgba(0, 0, 0, 0.0);
 	border-bottom: 0;
 	color: #283E48;
 }
 
 .leaflet-bar a.leaflet-disabled {
-	background-color: rgba(255, 255, 255, 0.05);
+	background-color: rgba(255, 255, 255, 0.0);
 	color: #bbb;
 }
 
@@ -194,12 +194,11 @@ hr {
 
 .leaflet-control-zoom-in,
 .leaflet-control-zoom-out {
-	font-family: alike_angularregular, serif;
-  font-size: 1.5em;
+	font: 2em alike_angularregular, serif;
 }
 
 .leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 @keyframes fade-in {
