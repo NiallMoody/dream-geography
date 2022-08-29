@@ -168,6 +168,24 @@ hr {
 	background-color: rgba(255, 255, 255, 0.0);
 }
 
+.leaflet-bar {
+  box-shadow: none;
+  border-radius: 0px;
+  border: 0;
+}
+
+.leaflet-bar a {
+	background-color: rgba(0, 0, 0, 0.05);
+	border-bottom: 1px solid #ccc;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+}
+
 @keyframes fade-in {
   from {
     mask-position: bottom;
