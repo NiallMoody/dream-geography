@@ -224,6 +224,16 @@ fastify.get(`/map`, (request, reply) => {
   let dateObject = new Date();
   let dateInteger = dateObject.getFullYear() + dateObject.getMonth() + dateObject.getDate();
   
+  if(())
+  
+  reply.view(`/src/pages/map.hbs`, { "backImage" : backImages[(dateInteger + 3) % backImages.length] });
+});
+
+//Secret map link, for when we need to test it's working.
+fastify.get(`/secret-map-ssh`, (request, reply) => {
+  let dateObject = new Date();
+  let dateInteger = dateObject.getFullYear() + dateObject.getMonth() + dateObject.getDate();
+  
   reply.view(`/src/pages/map.hbs`, { "backImage" : backImages[(dateInteger + 3) % backImages.length] });
 });
 
