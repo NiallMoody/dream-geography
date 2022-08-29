@@ -197,8 +197,16 @@ function getImage(placeName) {
 fastify.get(`/`, (request, reply) => {
   let dateObject = new Date();
   let dateInteger = dateObject.getFullYear() + dateObject.getMonth() + dateObject.getDate();
+  let mapLink = '';
   
-  reply.view(`/src/pages/index.hbs`, { "backImage" : backImages[dateInteger % backImages.length] });
+  if((dateObject.getHours() == (dateObject.getMonth()+1)) && (dateObject.getDate() == (dateObject.getMonth()+1))) {
+    mapLink = `
+<p class="entryLink">
+  <a href="/map">secret map</a>
+</p>`;
+  }
+  
+  reply.view(`/src/pages/index.hbs`, { "backImage" : backImages[dateInteger % backImages.length], mapLink: mapLink });
 });
 
 //Our about page.
@@ -224,9 +232,10 @@ fastify.get(`/map`, (request, reply) => {
   let dateObject = new Date();
   let dateInteger = dateObject.getFullYear() + dateObject.getMonth() + dateObject.getDate();
   
-  if(())
-  
-  reply.view(`/src/pages/map.hbs`, { "backImage" : backImages[(dateInteger + 3) % backImages.length] });
+  if((dateObject.getHours() == (dateObject.getMonth()+1)) && (dateObject.getDate() == (dateObject.getMonth()+1)))
+    reply.view(`/src/pages/map.hbs`, { "backImage" : backImages[(dateInteger + 3) % backImages.length] });
+  else 
+    reply.redirect('/');
 });
 
 //Secret map link, for when we need to test it's working.

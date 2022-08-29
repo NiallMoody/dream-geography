@@ -155,7 +155,7 @@ hr {
   font-size: 300%;
 }
 
-#entryLink {
+.entryLink {
   font-size: 150%;
   pointer-events: auto;
 }

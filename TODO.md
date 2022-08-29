@@ -1,9 +1,5 @@
 # TODO 🚧
 
-- [ ] Map listing all the places
-  - [ ] Draw the map by hand. Pencil first, then ink.
-  - [ ] The map only appears as a link at <certain times of day?/certain days of the week?>
-
 ---
 
 - [*] ~~Entry page~~
@@ -29,3 +25,6 @@
   - [*] ~~Who am I?~~
   - [*] ~~This site was last updated...~~
 - [*] ~~Boost~~
+- [*] ~~Map listing all the places~~
+  - [*] ~~Draw the map by hand. Pencil first, then ink.~~
+  - [*] ~~The map only appears as a link at <certain times of day?/certain days of the week?>~~
