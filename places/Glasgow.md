@@ -15,3 +15,5 @@ Dreaming Glasgow has apparently [[On the edge of the metropolis|spread as far ea
 There is a very good [[Rare Books|book shop]] in the south of the city
 
 There is a [[Red Desert|desert of red sand]] to the north of the city
+
+There is an [[Artists' Warehouse]] off Maryhill Road

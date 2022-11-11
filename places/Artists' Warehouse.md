@@ -1,5 +1,3 @@
-# Artists' Warehouse
-
 A long building, converted from some kind of warehouse. On the top floor a shop, filled with all sorts of handmade bits and pieces, very little space to move. Downstairs a variety of workshops and coworking spaces. I think a cafe too?
 
 I visited with a friend, who was showing me the coworking space she'd found. She hooked up with one of the artists, said she'd meet me at no.58. I didn't know where or what no.58 was, but they were thoroughly wrapped up in each other and I didn't want to interrupt, so I went for a wander.
