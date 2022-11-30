@@ -19,9 +19,9 @@
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/glitch-hello-node"
+    "url": "https://glitch.com/edit/#!/dream-geography"
   },
-  "license": "MIT",
+  "license": "Anti-Capitalist Software License",
   "keywords": [
     "node",
     "glitch",
