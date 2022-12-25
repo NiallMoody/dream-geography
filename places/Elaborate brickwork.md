@@ -2,7 +2,7 @@ In an English town on the south coast, I am on the promenade. Soldiers on horseb
 
 The building is strange, all curves, elaborate red brickwork, and narrow gaps you can squeeze through to reach other parts of the building. The soldiers are inside, I can hear them stomping about. I squeeze through one of the narrow gaps and see them coming towards me. I dive through the nearest doorway and find myself in a tiny library.
 
-Before I can close the door I am joined by an older black woman. She seems to know something about me.
+Before I can close the door I am joined by an older woman. She seems to know something about me.
 
 Flash forward. We are on a steam train heading north. We are passing through fields and there is a large tree. The woman jumps off the train, seemingly unconcerned about leaping off a moving train. I spend a long time talking myself out of it, but eventually follow her.
 
