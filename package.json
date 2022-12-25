@@ -1,7 +1,7 @@
 {
   "name": "dream-geography",
   "version": "0.0.1",
-  "description": "A page tracking the geography of my dreams.",
+  "description": "A site tracking the geography of my dreams.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
