@@ -4,7 +4,7 @@ A series of publicly-bookable observation cabins arrayed along the far edge of t
 
 You leave the reservation by descending a very long, very wide series of steps. Something about either the visual design of the steps or their physical construction makes them feel very dangerous. Descending them you feel in constant danger of tripping and tumbling all the way down to the bottom.
 
-Make it safely to the bottom of the steps and you arrive back in a busy shopping district. Tenements with shops on the ground floor and offices above, arrayed along straight, grid-like roads.
+Make it safely to the bottom of the steps and you arrive back in a busy [[The City Centre|shopping district]]. Tenements with shops on the ground floor and offices above, arrayed along straight, grid-like roads.
 
 ---
 

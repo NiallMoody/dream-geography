@@ -1,0 +1,3 @@
+The centre of [[Glasgow|the city]] is on a long, broad, gentle slope, tightly packed with shops (mostly on the ground floor of tenement buildings, with offices and flats above). The main streets are connected by winding, low-ceilinged shopping arcades, most of which are populated with unusual and unlikely independent shops.
+
+On my most recent visit I entered one of these arcades to find it had been entirely taken over by a perfume chain, with its own theme tune playing constantly throughout the arcade and incredibly aggressive salespeople desperately trying to convince me to buy perfume. The salespeople each seemed to have their own gimic; one of them was a contortionist placed strategically next to the exit.
