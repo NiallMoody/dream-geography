@@ -1,0 +1,7 @@
+Leaving work early I found myself caught up in some official visit and had to exit by crawling through a gap in the North wall.
+
+Once on the other side of the wall I started to feel guilty that I hadn't said goodbye to the colleague I was teaching with that day, so I turned back. Somehow this led to me being pursued by a murderous robot (part of an attack on the officials who were visiting, maybe?), which chased me to the car park. Thankfully dreaming Abertay's car park is apparently more secure than the waking Abertay car park, as the robot was not able to get through the security barriers.
+
+Inside, I found my colleague in a low-ceilinged, dimly-lit room, starting to build some kind of alternative controller research project with a group of other people.
+
+Having said my goodbyes, this time I left via a different exit, which opened directly into a vast, upmarket shopping mall. The mall was arranged as a long avenue with periodic branches and regular, dimly-lit right-angled spurs which appeared from a distance to be exits. On closer inspection though, they all ended in large video walls designed to look like exits, only to ensnare weary shoppers deeper within the bowels of the mall. I believe I have found myself ensnared within this mall multiple times in the past.
