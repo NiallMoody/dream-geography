@@ -14,7 +14,10 @@ var dreams = [{url:'places/islands-off-the-coast-of-argyll', latlng:{lat:332.200
               {url:'places/carrot!', latlng:{lat:486.8000030517578, lng:701.8612285855745}},
               {url:'places/elaborate-brickwork', latlng:{lat:8.800003051757812, lng:453.91895221182676}},
               {url:"places/artists'-warehouse", latlng:{lat:415.8000030517578, lng:341.9450209462632}},
-              {url:"places/the-university", latlng:{lat:385.8000030517578, lng:361.9403658151138}}];
+              {url:"places/the-university", latlng:{lat:385.8000030517578, lng:361.9403658151138}},
+              {url:"places/the-city-centre", latlng:{lat:346.8000030517578, lng:467.9861102630327}},
+              {url:"places/abertay", latlng:{lat:511.8000030517578, lng:877.1636384636465}},
+              {url:"places/not-dundee", latlng:{lat:479.8000030517578, lng:906.1762260377732}}];
 
 window.addEventListener('load', (event) => {
   var map = L.map('map', {
@@ -28,7 +31,7 @@ window.addEventListener('load', (event) => {
   }).addTo(map);
 
   var bounds = [[0, 0], [578, 1000]];
-  var image = L.imageOverlay('https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/map-22.12.28-smaller.png?v=1672227616231', bounds).addTo(map);
+  var image = L.imageOverlay('https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/map-23.04.09-smaller.png?v=1681065823150', bounds).addTo(map);
 
   map.fitBounds(bounds);
   
