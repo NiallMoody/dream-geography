@@ -1,0 +1,5 @@
+We found a time machine. We took it back to 70's Glasgow and found ourselves in front of a block of partly-demolished tenements, one building on the end still standing. It had a strange enclosed black balcony jutting out on the first floor, seemingly part of a larger structure when the tenement's neighbours were still standing. I recognised it as the building I lived in when I last lived in Glasgow.
+
+Round the corner, at the end of the block, a grand art deco hotel that I remember having been demolished before my time. Black trees with vivid white blossom flank a statue of a leaping lion in front of it. On closer inspection one of the trees has fallen and not been removed.
+
+We enter the lobby by pressing a button that makes a loud buzz when pressed. The lobby is grey and small and feels far removed from the opulence of the building's exterior. Heading into the next room we find a pair of nurses and a number of babies in cots. I remember that in its final years the hotel had been converted into a hospital.
