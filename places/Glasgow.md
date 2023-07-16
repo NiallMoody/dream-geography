@@ -18,4 +18,6 @@ There is a [[Red Desert|desert of red sand]] to the north of the city
 
 There is an [[Artists' Warehouse]] off Maryhill Road
 
-I think [[The University]] is in Glasgow
+I think [[The University]] (and [[Home|my home]]) is in Glasgow
+
+There was once a [[The Hotel|Hotel]] in the West of the city, and a [[Possilpark|vast planned neighbourhood]], the result of one man's vision
