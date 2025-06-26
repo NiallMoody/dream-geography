@@ -1,5 +1,7 @@
 const path = require("path");
 const fs = require("fs");
+const url = require("url");
+const port = process.env.PORT || 10000;
 
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
@@ -16,7 +18,7 @@ fastify.register(require("@fastify/static"), {
 });
 
 // point-of-view is a templating manager for fastify
-fastify.register(require("point-of-view"), {
+fastify.register(require("@fastify/view"), {
   engine: {
     handlebars: require("handlebars")
   }
@@ -34,7 +36,7 @@ function sanitisePageNames(name) {
 //Load our markdown renderer.
 var md = require("markdown-it")();
 //...and the plugin to support wikilinks.
-const wikilinks = require("markdown-it-wikilinks")({ postProcessPageName:sanitisePageNames, uriSuffix:`` });
+const wikilinks = require("@gardeners/markdown-it-wikilinks")({ postProcessPageName:sanitisePageNames, uriSuffix:`` });
 
 //Make sure we can sanitise filenames.
 var sanitize = require("sanitize-filename");
@@ -58,20 +60,20 @@ delete lastModifiedPlaces["lastSiteUpdate"];
 var placesUrls = [];
 
 //Our background image assets.
-var backImages = [`https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back00.jpg?v=1652713420583`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back01.jpg?v=1652713420583`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back02.jpg?v=1652713420583`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back03.jpg?v=1652713420583`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back04.jpg?v=1652727003693`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back05.jpg?v=1652727003846`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back06.jpg?v=1652727004070`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back07.jpg?v=1652727004010`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back08.jpg?v=1652727004039`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back09.jpg?v=1652815230374`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back10.jpg?v=1652815230426`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back11.jpg?v=1652815230464`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back12.jpg?v=1652815230306`,
-                  `https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/back13.jpg?v=1652815230695`];
+var backImages = [`/images/back00.jpg`,
+                  `/images/back01.jpg`,
+                  `/images/back02.jpg`,
+                  `/images/back03.jpg`,
+                  `/images/back04.jpg`,
+                  `/images/back05.jpg`,
+                  `/images/back06.jpg`,
+                  `/images/back07.jpg`,
+                  `/images/back08.jpg`,
+                  `/images/back09.jpg`,
+                  `/images/back10.jpg`,
+                  `/images/back11.jpg`,
+                  `/images/back12.jpg`,
+                  `/images/back13.jpg`];
 
 //------------------------------------------------------------------------------
 //Set to true to regenerate *ALL* pages when the server restarts.
@@ -262,8 +264,18 @@ fastify.get(`/places/*`, (request, reply) => {
   return reply.sendFile(url);
 });
 
+//Serves images from the images directory.
+fastify.get(`/images/*`, (request, reply) => {
+	return reply.sendFile(request.url);
+});
+
+//Serves fonts from the fonts directory.
+fastify.get(`/fonts/*`, (request, reply) => {
+	return reply.sendFile(request.url);
+});
+
 //Run the server and report out to the logs
-fastify.listen(process.env.PORT, `0.0.0.0`, (err, address) => {
+fastify.listen({ port: port, host: '0.0.0.0' }, (err, address) => {
   if (err) {
     console.log(err);
     fastify.log.error(err);

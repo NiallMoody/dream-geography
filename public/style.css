@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'alike_angularregular';
-    src: url('https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/alikeangular-regular-webfont.woff2?v=1652125589185') format('woff2'),
-         url('https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/alikeangular-regular-webfont.woff?v=1652125589133') format('woff');
+    src: url('/fonts/alikeangular-regular-webfont.woff2') format('woff2'),
+         url('/fonts/alikeangular-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 

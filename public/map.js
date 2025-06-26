@@ -33,7 +33,7 @@ window.addEventListener('load', (event) => {
   }).addTo(map);
 
   var bounds = [[0, 0], [578, 1000]];
-  var image = L.imageOverlay('https://cdn.glitch.global/273ac551-9687-45bd-9f8d-1556cfa510c5/map-23.07.16-smaller.png?v=1689512755811', bounds).addTo(map);
+  var image = L.imageOverlay('/images/map-23.07.16-smaller.png', bounds).addTo(map);
 
   map.fitBounds(bounds);
   
