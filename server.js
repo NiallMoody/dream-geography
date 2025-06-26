@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require("fs");
-const url = require("url");
 const port = process.env.PORT || 10000;
 
 //------------------------------------------------------------------------------
